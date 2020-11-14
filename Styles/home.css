@@ -1,15 +1,8 @@
 @import "rootStyle.css";
 
-body{
-    background-color: var(--secondary-color);
+html, body{
+    height: 100%;
 }
-
-/* button{
-    outline: none;
-} */
-/* button:focus{
-    outline: none;
-} */
 
 .cc-navbar{
     color: var(--primary-color) !important;
