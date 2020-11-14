@@ -1,105 +1,164 @@
 @import "rootStyle.css";
 
-html, body{
-    height: 100%;
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--secondary-color);
+}
+
+.cc-white-bg {
+  width: 50%;
+  height: 150%;
+  position: fixed;
+  z-index: -1;
+  background-color: #fff;
+  left: 0%;
+  top: -25%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 /* Navigtion Bar */
 
-.cc-navbar{
-    color: var(--primary-color) !important;
+.cc-navbar {
+  color: var(--primary-color) !important;
 }
 
-.active{
-    text-decoration: underline;
+.active {
+  text-decoration: underline;
 }
 
-.cc-nav-logo{
-    font-family: 'Roboto', sans-serif;
-    font-size: 2rem;
-    color: var(--primary-color)!important;
-    font-weight: 900;
-    letter-spacing: 2px;
+.cc-nav-logo {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color) !important;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
-.nav-link{
-    color: var(--primary-color) !important;
-    font-size: 1.3rem;
-    font-weight: 600;
-    padding: 3px;
-    margin-right: 1.8rem;
+.nav-link {
+  color: var(--primary-color) !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 3px;
+  margin-right: 1.8rem;
 }
 
 .navbar-light .navbar-toggler {
-    border: none;
+  border: none;
 }
 
 /* Main Container */
 
-.cc-ill{
-    text-align: center;
-}
-.cc-ill-img{
-    width: 80%;
+.cc-ill-img {
+  width: 80%;
+  padding-right: 2rem;
 }
 
-.cc-place-order-btn{
-    background-color: var(--primary-color);
-    border: 3px solid var(--primary-color);
-    border-radius: 50px;
-    font-weight: 600;
+.cc-place-order-btn {
+  background-color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 50px;
+  font-weight: 600;
 }
-.cc-place-order-btn :hover{
-    background-color: white;
-    color: var(--primary-color);
+.cc-place-order-btn :hover {
+  background-color: white;
+  color: var(--primary-color);
 }
-.cc-track-order-btn{
-    color: var(--primary-color);
-    border: 3px solid var(--primary-color);
-    border-radius: 50px;
-    font-weight: 600;margin-top: 1rem;
+.cc-track-order-btn {
+  color: var(--primary-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 1rem;
 }
-.cc-track-order-btn:hover{
-    color: white;
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+.cc-track-order-btn:hover {
+  color: white;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.cc-contents {
+  padding: 0.5rem;
 }
 
 /* header */
-.cc-main-head{
-    color: var(--primary-color);
-    font-weight: 800;
+.cc-main-head {
+  color: var(--primary-color);
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+}
+
+.cc-main-p {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.cc-buttons {
+  margin-top: 3rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .nav-link {
+    margin-right: 1rem;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .nav-link {
+    margin-right: 0.2rem;
+  }
+}
+
+/* Mobile Phone  */
+
+@media only screen and (max-width: 992px) {
+  .cc-white-bg {
+    border-radius: 0;
+    width: 150%;
+    height: 55%;
+    top: 0;
+    border-bottom-left-radius: 50%;
+    left: -25%;
+    border-bottom-right-radius: 50%;
+  }
+
+  .cc-ill-img {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cc-main-head {
     letter-spacing: 0.2rem;
-    font-size: 4.5rem;
-    line-height: 4.5rem;
-    margin-top: 5rem;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+  .cc-main-p {
+    font-size: 1.0rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .cc-main-head {
+    letter-spacing: 0.1rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .cc-main-p {
+    font-size: 0.8rem;
+  }
 }
 
-.cc-main-p{
-    color: var(--primary-color);
-    font-weight: 500;
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.cc-buttons{
-    margin-top: 3rem;
-}
-
-@media only screen and (max-width : 1200px){
-    .nav-link{
-        margin-right: 1rem;
-    }
-}
-@media only screen and (max-width : 1050px){
-    .nav-link{
-        margin-right: 0;
-    }
-}
