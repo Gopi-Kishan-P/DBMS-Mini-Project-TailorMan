@@ -4,6 +4,8 @@ html, body{
     height: 100%;
 }
 
+/* Navigtion Bar */
+
 .cc-navbar{
     color: var(--primary-color) !important;
 }
@@ -32,4 +34,8 @@ html, body{
     font-size: 1.3rem;
     font-weight: 600;
     padding: 3px;
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
 }
