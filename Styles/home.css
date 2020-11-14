@@ -34,6 +34,7 @@ html, body{
     font-size: 1.3rem;
     font-weight: 600;
     padding: 3px;
+    margin-right: 1.8rem;
 }
 
 .navbar-light .navbar-toggler {
@@ -46,5 +47,20 @@ html, body{
     text-align: center;
 }
 .cc-ill-img{
-    width: 60%;
+    width: 80%;
+}
+
+.cc-place-btn{
+    
+}
+
+@media only screen and (max-width : 1200px){
+    .nav-link{
+        margin-right: 1rem;
+    }
+}
+@media only screen and (max-width : 1050px){
+    .nav-link{
+        margin-right: 0;
+    }
 }

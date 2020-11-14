@@ -22,7 +22,7 @@
 </head>
 
 <body>
-   <div class="container-fluid h-100">
+   <div class="container-fluid h-100 d-flex flex-column">
 
       <!-- navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
@@ -57,13 +57,16 @@
       </nav>
 
       <!-- Main Container -->
-      <div class="row">
-         <div class="col-lg cc-ill">
-            <img src="images/logo.svg" alt="Logo" class="img-fluid cc-ill-img">
+      <div class="row flex-grow-1">
+         <div class="col-lg cc-ill d-flex justify-content-center align-items-center">
+            <img src="images/logo.svg" alt="Logo" class="img-fluid cc-ill-img m-4">
          </div>
          <div class="col-lg">
-            <h1>Tailor Management</h1>
+            <h1>Tailor <br> Management</h1>
             <p>One Stop Solution To Place and Track Your Order</p>
+            <div class="buttons">
+               <button class="btn cc-place-btn">Place Order</button>
+            </div>
          </div>
       </div>
    </div>
