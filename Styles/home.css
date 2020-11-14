@@ -80,7 +80,7 @@ body {
 
 /* Mobile Phone  */
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
   .cc-white-bg {
     border-radius: 0;
     width: 150%;
