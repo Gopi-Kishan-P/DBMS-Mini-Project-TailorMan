@@ -21,42 +21,7 @@ body {
   border-bottom-right-radius: 50%;
 }
 
-/* Navigtion Bar */
 
-.cc-navbar {
-  color: var(--primary-color) !important;
-}
-
-.active {
-  text-decoration: underline;
-}
-
-.cc-nav-logo {
-  font-family: "Roboto", sans-serif;
-  font-size: 2rem;
-  color: var(--primary-color) !important;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.nav-link {
-  color: var(--primary-color) !important;
-  font-size: 1.3rem;
-  font-weight: 600;
-  padding: 3px;
-  margin-right: 1.8rem;
-}
-
-.navbar-light .navbar-toggler {
-  border: none;
-}
 
 /* Main Container */
 
@@ -112,16 +77,6 @@ body {
   margin-top: 3rem;
 }
 
-@media only screen and (max-width: 1250px) {
-  .nav-link {
-    margin-right: 1rem;
-  }
-}
-@media only screen and (max-width: 1080px) {
-  .nav-link {
-    margin-right: 0.2rem;
-  }
-}
 
 /* Mobile Phone  */
 
