@@ -39,3 +39,9 @@ html, body{
 .navbar-light .navbar-toggler {
     border: none;
 }
+
+/* Main Container */
+
+.cc-illustration{
+    text-align: center;
+}
