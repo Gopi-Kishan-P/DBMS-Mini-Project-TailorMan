@@ -42,6 +42,9 @@ html, body{
 
 /* Main Container */
 
-.cc-illustration{
+.cc-ill{
     text-align: center;
+}
+.cc-ill-img{
+    width: 60%;
 }
