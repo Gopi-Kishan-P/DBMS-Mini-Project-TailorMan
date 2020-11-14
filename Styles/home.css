@@ -90,7 +90,9 @@ body {
     left: -25%;
     border-bottom-right-radius: 50%;
   }
-
+  .cc-contents{
+    text-align: center;
+  }
   .cc-ill-img {
     padding: 0;
   }
