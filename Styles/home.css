@@ -50,8 +50,47 @@ html, body{
     width: 80%;
 }
 
-.cc-place-btn{
-    
+.cc-place-order-btn{
+    background-color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+}
+.cc-place-order-btn :hover{
+    background-color: white;
+    color: var(--primary-color);
+}
+.cc-track-order-btn{
+    color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;margin-top: 1rem;
+}
+.cc-track-order-btn:hover{
+    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* header */
+.cc-main-head{
+    color: var(--primary-color);
+    font-weight: 800;
+    letter-spacing: 0.2rem;
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+    margin-top: 5rem;
+}
+
+.cc-main-p{
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.cc-buttons{
+    margin-top: 3rem;
 }
 
 @media only screen and (max-width : 1200px){
