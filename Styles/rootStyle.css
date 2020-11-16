@@ -1,9 +1,16 @@
-*{
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
 :root{
     --primary-color : #0381FF;
     --secondary-color : #D3E9FF;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-color);
+}
+
+
+html,
+body {
+  height: 100%;
 }
