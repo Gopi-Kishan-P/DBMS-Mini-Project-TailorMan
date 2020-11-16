@@ -31,7 +31,7 @@
 .cc-lc-inp{
     outline: none;
     border: 2px solid var(--primary-color);    
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 .cc-submit{
     background-color: var(--primary-color);
@@ -45,5 +45,9 @@
 .cc-reset :hover{
     color: white !important;
     background-color: var(--primary-color) !important;
+}
+
+.cc-dnone{
+    display: none !important; 
 }
 

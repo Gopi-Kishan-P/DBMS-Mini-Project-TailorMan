@@ -60,7 +60,7 @@
 
       <!-- Login / Create -->
       <div class="row flex-grow-1 p-2 justify-content-center align-items-center">
-         <div class="col-lg-6 col-md-8 col-sm-10 cc-lc-form my-3">
+         <div class="col-lg-6 col-md-8 col-sm-10 cc-lc-form my-3 cc-lc-main">
             <div class="cc-lc-head d-flex rounded-pill my-5">
                <div class="flex-grow-1 text-center rounded-pill cc-lc">
                   <h4 class="m-0 p-1 rounded-pill cc-lc-active" id="loginHead" onclick="loginClicked()">Login</h4>
@@ -70,6 +70,12 @@
                </div>
             </div>
             <form action="" class="my-5">
+               <div id="username" class="cc-name my-4 d-flex cc-dnone">
+                  <label for="username-inp" class="mr-3">
+                     <img src="images/user.svg" width="18px" alt="">
+                  </label>
+                  <input type="tel" name="username-inp" id="username-inp" class="text-center flex-grow-1 rounded-pill px-2 fw-bold cc-lc-inp" placeholder="Name">
+               </div>
                <div class="cc-phno my-4 d-flex">
                   <label for="phno" class="mr-3">
                      <img src="images/phone.svg" width="18px" alt="">
@@ -83,7 +89,7 @@
                   <input type="password" name="passwd" id="passwd" class="text-center flex-grow-1 rounded-pill fw-bold px-2 cc-lc-inp" placeholder="Password" required>
                </div>
                <div class="d-flex flex-column mt-4 cc-sub-res">
-                  <button type="submit" class="my-1 btn btn-primary rounded-pill p-1 cc-submit" onclick="login">Login</button>
+                  <button type="submit" id="submit" class="my-1 btn btn-primary rounded-pill p-1 cc-submit" onclick="login">Login</button>
                   <button type="reset" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-reset">Reset</button>
                </div>
             </form>
