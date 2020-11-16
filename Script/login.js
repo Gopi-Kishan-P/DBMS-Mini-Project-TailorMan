@@ -16,3 +16,7 @@ function createClicked() {
     if(!createHead.classList.contains("cc-lc-active"))
         createHead.classList.add("cc-lc-active");
 }
+
+function Login(){
+    
+}
