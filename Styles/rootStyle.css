@@ -2,7 +2,9 @@
     --primary-color : #0381FF;
     --secondary-color : #D3E9FF;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
 *{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;

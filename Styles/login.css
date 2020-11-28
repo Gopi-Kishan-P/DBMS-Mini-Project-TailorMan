@@ -1,5 +1,7 @@
 @import "rootStyle.css";
 
+
+
 ::placeholder{
     color: var(--primary-color);
     font-weight: 100;
