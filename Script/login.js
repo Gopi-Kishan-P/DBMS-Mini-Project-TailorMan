@@ -7,6 +7,9 @@ let username_inp = document.getElementById("username-inp")
 let passwd = document.getElementById("passwd")
 let submit = document.getElementById("submit");
 
+let log_form = document.getElementById("log-form");
+let reg_form = document.getElementById("reg-form");
+
 
 
 function loginClicked() {
@@ -15,27 +18,29 @@ function loginClicked() {
     if (createHead.classList.contains("cc-lc-active"))
         createHead.classList.remove("cc-lc-active");
 
-    if (!username.classList.contains("cc-dnone"))
-        username.classList.add("cc-dnone");
-    submit.innerText = "Login";
+    if (log_form.classList.contains("d-none"))
+        log_form.classList.remove("d-none");
+    if (!reg_form.classList.contains("d-none"))
+        reg_form.classList.add("d-none");
 
-    passwd.setAttribute("placeholder","Password")
-    username_inp.removeAttribute("required");
+    // passwd.setAttribute("placeholder","Password")
+    // username_inp.removeAttribute("required");
 
 
 }
 
-function createClicked() {
+function registerClicked() {
     if (loginHead.classList.contains("cc-lc-active"))
         loginHead.classList.remove("cc-lc-active");
     if (!createHead.classList.contains("cc-lc-active"))
         createHead.classList.add("cc-lc-active");
 
-    if (username.classList.contains("cc-dnone"))
-        username.classList.remove("cc-dnone");
+    if (!log_form.classList.contains("d-none"))
+        log_form.classList.add("d-none");
+    if (reg_form.classList.contains("d-none"))
+        reg_form.classList.remove("d-none");
 
-    submit.innerText = "Register";
-    passwd.setAttribute("placeholder","New Password")
+    // if (username.classList.contains("cc-dnone"))
+    //     username.classList.remove("cc-dnone");
 
-    username_inp.setAttributeNode(document.createAttribute("required"));
 }
