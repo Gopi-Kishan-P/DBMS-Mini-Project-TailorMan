@@ -20,7 +20,7 @@
         mysqli_query($conn, $sql);
         
         // Measurement Table
-        $sql = "CREATE TABLE IF NOT EXISTS `tailorman`.`measurements` ( `Cust_ID` INT(3) NOT NULL, Foreign Key (Cust_Id) References `customer`(Cust_ID), `Shirt Length` FLOAT, `Shoulder` FLOAT, `Sleeves` FLOAT, `Chest` FLOAT, `Waist` FLOAT, `Hip` FLOAT, `Collar` FLOAT, `Pant Length` FLOAT, `Fork Round` FLOAT, `Thigh` FLOAT, `Knee` FLOAT, `Bottom` FLOAT )";
+        $sql = "CREATE TABLE IF NOT EXISTS `tailorman`.`measurements` ( `Cust_ID` INT(3) NOT NULL, Foreign Key (Cust_Id) References `customer`(Cust_ID), `Shirt Length` FLOAT, `Collar` FLOAT, `Shoulder` FLOAT, `Chest` FLOAT, `Sleeves` FLOAT, `Waist` FLOAT, `Pant Length` FLOAT, `Hip` FLOAT, `Fork Round` FLOAT, `Thigh` FLOAT, `Knee` FLOAT, `Bottom` FLOAT )";
         mysqli_query($conn, $sql);
         
         

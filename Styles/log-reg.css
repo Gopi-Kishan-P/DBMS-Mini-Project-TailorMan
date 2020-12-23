@@ -48,16 +48,44 @@
 }
 
 .cc-rth {
+  background-color: var(--primary-color);
   padding: 5px 100px;
-  min-width: 30%;
+  width: 9rem;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 
 .cc-logout {
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
-  min-width: 30%;
+  width: 9rem;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 .cc-logout:hover {
     color: white !important;
     background-color: var(--primary-color) !important;
+}
+
+.cc-mes-save{
+  width: 5rem;
+}
+
+
+
+.cc-mes-label{
+  min-width: 50%;
+  /* line-height: 1; */
+}
+
+.cc-mes-inp{
+  width: 3rem;
+  outline: none;
+  border: none;
+  border-bottom: 1.5px solid var(--primary-color);
+  margin: 2px;
+}
+
+.cc-w-50{
+  width: 50%;
 }

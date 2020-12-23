@@ -61,7 +61,8 @@ function login($conn, $phno, $passwd)
    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
 
    <!-- bootstrap css -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
    <!-- Custom CSS -->
    <link rel="stylesheet" href="Styles/navbar.css">
@@ -74,14 +75,16 @@ function login($conn, $phno, $passwd)
 
 </head>
 
-<body >
+<body>
    <div class="container-fluid h-100 d-flex flex-column">
 
       <!-- navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
          <div class="container-fluid">
             <a class="navbar-brand cc-nav-logo" href="index.php">TailorMan</a>
-            <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
+               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
                <span class="cc-menu">
                   <img src="images/menu.svg" alt="" width="30px" id="menu" onclick="change()">
                </span>
@@ -115,18 +118,126 @@ function login($conn, $phno, $passwd)
          </div>
       </nav>
 
-      <!-- Login / Register -->
-      
-         <?php
+
+      <?php
          session_start();
          if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true){
-            echo '<div class="col flex-grow-1 p-2 justify-content-center align-items-center my-3"><h2>Logged in as '. $_SESSION['User Name']. "</h2>";
-            echo '<div><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
+            echo '<div class="col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as '. $_SESSION['User Name']. "</h2>";
+            echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
             <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
+            </div>';
+
+            echo '
+            <div class="container-fluid flex-grow-1 my-4">
+               <hr>
+               <h2 class="text-center ">Measurement</h2>
+               <form action="/login.php" method="POST">
+                  <div class="row">
+                     <div class="col-lg">
+                        <!-- <h5 class="text-center">Upper Body</h5> -->
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Shirt Length :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="shirt-length" id="shirt-length" class="text-center cc-mes-inp" min="0"
+                                 max="99" step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Collar :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="collar" id="collar" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Shoulder :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="shoulder" id="shoulder" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Chest :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="chest" id="chest" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Sleeves :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="sleeves" id="sleeves" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Waist :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="waist" id="waist" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg flex-grow-1">
+                        <!-- <h5 class="text-left">Lower Body</h5> -->
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Pant Length :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="pant-length" id="pant-length" class="text-center cc-mes-inp" min="0"
+                                 max="99" step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Hip :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="hip" id="hip" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Fork Round :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="fork-round" id="fork-round" class="text-center cc-mes-inp" min="0"
+                                 max="99" step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Thigh :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="thigh" id="thigh" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Knee :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="knee" id="knee" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                        <div class="p-1 d-flex justify-content-evenly align-items-end">
+                           <label for="shirt-length" class="text-right cc-mes-label">Bottom :</label>
+                           <div class="cc-w-50 text-center">
+                              <input type="number" name="bottom" id="bottom" class="text-center cc-mes-inp" min="0" max="99"
+                                 step="0.1">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+         
+                  <div class="row">
+                     <button type="submit" id="lof-btn"
+                        class="my-1 btn btn-primary rounded-pill p-1 cc-mes-save m-auto">Save</button>
+         
+                  </div>
+               </form>
             </div>';
          }
          else
-            echo '<div class="row flex-grow-1 p-2 justify-content-center align-items-center">
+            echo ' 
+      <!-- Login / Register -->
+
+            <div class="row flex-grow-1 p-2 justify-content-center align-items-center">
          <div class="col-lg-4 col-md-6 col-sm-8 col-sm-10 cc-lc-form my-3 cc-lc-main">
             <div class="cc-lc-head d-flex rounded-pill my-5">
                <div class="flex-grow-1 text-center rounded-pill cc-lc">
@@ -187,23 +298,19 @@ function login($conn, $phno, $passwd)
                </div>
             </form>';
             ?>
-            <?php
+      <?php
             if (!empty($Message))
                echo '<div id="lr-status" class="bg-warning px-3 py-1 text-center rounded-pill">' . $Message . '</div>';
             ?>
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-lg bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis, repellendus in, impedit sed iste a at soluta, excepturi molestias fuga. Enim veniam nisi expedita dolorum ratione exercitationem consectetur assumenda.</div>
-                  <div class="col-lg bg-danger flex-grow-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat suscipit dolor ab quasi consequatur itaque quis enim totam, incidunt voluptatibus tempore accusamus eligendi obcaecati velit neque exercitationem repellendus voluptate et.</div>
-               </div>
-            </div>
-         </div>
-      </div>
    </div>
-   <!-- bootstrap js bundle -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
 
-   
+
+   <!-- bootstrap js bundle -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
+      crossorigin="anonymous"></script>
+
+
 
    <script src="Script/log_reg.js"></script>
    <script src="Script/nav.js"></script>
