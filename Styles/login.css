@@ -47,10 +47,13 @@
   background-color: var(--primary-color) !important;
 }
 
-.cc-rth{
-  padding: 5px 10px;
+.cc-rth {
+  padding: 5px 100px;
+  min-width: 30%;
 }
 
-.cc-logout{
-  border: 10px solid var(--primary-color);
+.cc-logout {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  min-width: 30%;
 }
