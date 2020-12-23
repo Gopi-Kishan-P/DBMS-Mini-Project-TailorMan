@@ -65,7 +65,8 @@ function login($conn, $phno, $passwd)
 
    <!-- Custom CSS -->
    <link rel="stylesheet" href="Styles/navbar.css">
-   <link rel="stylesheet" href="Styles/login.css">
+   <!-- <link rel="stylesheet" href="Styles/login.css"> -->
+   <link rel="stylesheet" href="Styles/log-reg.css">
 
    <!-- font -->
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -119,7 +120,7 @@ function login($conn, $phno, $passwd)
          <?php
          session_start();
          if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true){
-            echo '<div class="col flex-grow-1 p-2 justify-content-center align-items-center"><h1>Logged in as '. $_SESSION['User Name']. "</h1>";
+            echo '<div class="col flex-grow-1 p-2 justify-content-center align-items-center my-3"><h2>Logged in as '. $_SESSION['User Name']. "</h2>";
             echo '<div><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
             <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
             </div>';
@@ -195,6 +196,8 @@ function login($conn, $phno, $passwd)
    </div>
    <!-- bootstrap js bundle -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
+
+   
 
    <script src="Script/log_reg.js"></script>
    <script src="Script/nav.js"></script>
