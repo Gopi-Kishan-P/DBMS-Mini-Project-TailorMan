@@ -191,6 +191,12 @@ function login($conn, $phno, $passwd)
             if (!empty($Message))
                echo '<div id="lr-status" class="bg-warning px-3 py-1 text-center rounded-pill">' . $Message . '</div>';
             ?>
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis, repellendus in, impedit sed iste a at soluta, excepturi molestias fuga. Enim veniam nisi expedita dolorum ratione exercitationem consectetur assumenda.</div>
+                  <div class="col-lg bg-danger flex-grow-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat suscipit dolor ab quasi consequatur itaque quis enim totam, incidunt voluptatibus tempore accusamus eligendi obcaecati velit neque exercitationem repellendus voluptate et.</div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
