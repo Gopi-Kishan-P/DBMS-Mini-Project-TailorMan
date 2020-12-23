@@ -10,8 +10,7 @@
    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
 
    <!-- bootstrap css -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
    <!-- Custom CSS -->
    <link rel="stylesheet" href="Styles/navbar.css">
@@ -29,10 +28,8 @@
       <!-- navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
          <div class="container-fluid">
-            <a class="navbar-brand cc-nav-logo" href="index.html">TailorMan</a>
-            <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
-               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-               aria-label="Toggle navigation">
+            <a class="navbar-brand cc-nav-logo" href="index.php">TailorMan</a>
+            <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="cc-menu">
                   <img src="images/menu.svg" alt="" width="30px" id="menu" onclick="change()">
                </span>
@@ -40,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav ml-auto text-right p-0 font-weigth-bolder">
                   <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                   </li>
                   <!-- <li class="nav-item">
                      <a class="nav-link" href="#">Catalog</a>
@@ -51,9 +48,18 @@
                   <li class="nav-item">
                      <a class="nav-link" href="#">Track Order</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="login.html">Login</a>
-                  </li>
+
+                  <?php
+                  session_start();
+                  if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true)
+                     echo '<li class="nav-item">
+                           <a class="nav-link" href="login.php">'.$_SESSION['User Name'].'</a>
+                           </li>';
+                  else
+                     echo '<li class="nav-item">
+                           <a class="nav-link" href="login.php">Login</a>
+                           </li>';
+                  ?>
             </div>
          </div>
       </nav>
@@ -78,9 +84,7 @@
    </div>
 
    <!-- bootstrap js bundle -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
-      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
 
    <script src="Script/nav.js"></script>
 </body>

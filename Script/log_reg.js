@@ -10,7 +10,7 @@ let submit = document.getElementById("submit");
 let log_form = document.getElementById("log-form");
 let reg_form = document.getElementById("reg-form");
 
-
+let lr_status = document.getElementById("lr-status");
 
 function loginClicked() {
     if (!loginHead.classList.contains("cc-lc-active"))
@@ -43,4 +43,11 @@ function registerClicked() {
     // if (username.classList.contains("cc-dnone"))
     //     username.classList.remove("cc-dnone");
 
+}
+
+function redirect() {
+    // if (lr_status.textContent === "Logged in Successfully") {
+    //     // alert("Login Succesful");
+    // }
+    window.location = "/index.php";
 }
