@@ -28,7 +28,7 @@
       <!-- navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
          <div class="container-fluid">
-            <a class="navbar-brand cc-nav-logo" href="index.php">TailorMan</a>
+            <a class="navbar-brand cc-nav-logo" href="/">TailorMan</a>
             <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="cc-menu">
                   <img src="images/menu.svg" alt="" width="30px" id="menu" onclick="change()">
@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav ml-auto text-right p-0 font-weigth-bolder">
                   <li class="nav-item">
-                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
                   <!-- <li class="nav-item">
                      <a class="nav-link" href="#">Catalog</a>
