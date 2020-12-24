@@ -10,7 +10,7 @@
     if($conn == false){
         echo "Coudnt Connect";
     }else{    
-        $sql = "Create database if not exis Tailorman;";
+        $sql = "Create database if not exists Tailorman;";
         mysqli_query($conn, $sql);
         $sql = "Use Tailorman;";
         mysqli_query($conn, $sql);

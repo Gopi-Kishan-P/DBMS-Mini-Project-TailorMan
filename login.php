@@ -18,16 +18,24 @@ if ($conn == true) {
          if ($num == 0) {
             $password = mysqli_real_escape_string($conn, $_POST["reg-passwd"]);
             $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
+            // Inserting into CUSTOMER Table
             $sql = "INSERT INTO `customer` (`Cust_Name`, `Cust_Phno`, `Cust_Password`) VALUES ('$username', '$phno', '$hashedpwd')";
-
             mysqli_query($conn, $sql);
 
             login($conn, $phno, $password);
+            if ($_SESSION['Logged In']) {
+               // Inserting into MEASUREMENT Table
+               $Cust_Id = $_SESSION['Id'];
+               $sql = "INSERT INTO `measurements` (`Cust_ID`) VALUES ($Cust_Id)";
+               mysqli_query($conn, $sql);
+            }
          } else {
             $Message = "User already exits, Please try login";
          }
       }
-
+      if (array_key_exists("log-phno", $_POST)) {
+         
+      }
    }
 }
 function login($conn, $phno, $passwd)
@@ -42,12 +50,9 @@ function login($conn, $phno, $passwd)
             session_start();
             $_SESSION['Logged In'] = true;
             $_SESSION['User Name'] = $row['Cust_Name'];
+            $_SESSION['Id'] = $row['Cust_ID'];
             // $username = $row['Cust_Name'];
             // $Message = "Logged in Successfully";
-            
-            // Measurement
-
-
          } else $Message = "Password Incorrect, Try Again";
       }
    } else $Message = "Invalid Phone and Password, <br>Register if you are a new Customer";
@@ -66,8 +71,7 @@ function login($conn, $phno, $passwd)
    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
 
    <!-- bootstrap css -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
    <!-- Custom CSS -->
    <link rel="stylesheet" href="Styles/navbar.css">
@@ -87,9 +91,7 @@ function login($conn, $phno, $passwd)
       <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
          <div class="container-fluid pl-2">
             <a class="navbar-brand cc-nav-logo" href="/">TailorMan</a>
-            <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
-               data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-               aria-label="Toggle navigation">
+            <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="cc-menu">
                   <img src="images/menu.svg" alt="" width="30px" id="menu" onclick="change()">
                </span>
@@ -125,14 +127,14 @@ function login($conn, $phno, $passwd)
 
 
       <?php
-         session_start();
-         if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true){
-            echo '<div class=" container col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as '. $_SESSION['User Name']. "</h2>";
-            echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
+      session_start();
+      if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true) {
+         echo '<div class=" container-flex col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as ' . $_SESSION['User Name'] . "</h2>";
+         echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
             <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
             </div>';
 
-            echo '
+         echo '
             <div class="container-fluid flex-grow-1 my-4">
                <hr>
                <h2 class="text-center ">Measurement</h2>
@@ -237,9 +239,8 @@ function login($conn, $phno, $passwd)
                   </div>
                </form>
             </div>';
-         }
-         else
-            echo ' 
+      } else
+         echo ' 
       <!-- Login / Register -->
 
             <div class="row flex-grow-1 p-2 justify-content-center align-items-center">
@@ -302,18 +303,16 @@ function login($conn, $phno, $passwd)
                   </div>
                </div>
             </form>';
-            ?>
+      ?>
       <?php
-            if (!empty($Message))
-               echo '<div id="lr-status" class="bg-warning px-3 py-1 text-center rounded-pill">' . $Message . '</div>';
-            ?>
+      if (!empty($Message))
+         echo '<div id="lr-status" class="bg-warning px-3 py-1 text-center rounded-pill">' . $Message . '</div>';
+      ?>
    </div>
 
 
    <!-- bootstrap js bundle -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
-      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
 
 
 
