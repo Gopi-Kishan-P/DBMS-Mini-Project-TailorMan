@@ -49,5 +49,5 @@ function redirect() {
     // if (lr_status.textContent === "Logged in Successfully") {
     //     // alert("Login Succesful");
     // }
-    window.location = "/index.php";
+    window.location = "/";
 }

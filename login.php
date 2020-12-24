@@ -27,6 +27,7 @@ if ($conn == true) {
             $Message = "User already exits, Please try login";
          }
       }
+
    }
 }
 function login($conn, $phno, $passwd)
@@ -43,6 +44,10 @@ function login($conn, $phno, $passwd)
             $_SESSION['User Name'] = $row['Cust_Name'];
             // $username = $row['Cust_Name'];
             // $Message = "Logged in Successfully";
+            
+            // Measurement
+
+
          } else $Message = "Password Incorrect, Try Again";
       }
    } else $Message = "Invalid Phone and Password, <br>Register if you are a new Customer";
@@ -80,7 +85,7 @@ function login($conn, $phno, $passwd)
 
       <!-- navigation bar -->
       <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
-         <div class="container-fluid">
+         <div class="container-fluid pl-2">
             <a class="navbar-brand cc-nav-logo" href="/">TailorMan</a>
             <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -122,7 +127,7 @@ function login($conn, $phno, $passwd)
       <?php
          session_start();
          if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true){
-            echo '<div class="col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as '. $_SESSION['User Name']. "</h2>";
+            echo '<div class=" container col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as '. $_SESSION['User Name']. "</h2>";
             echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
             <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
             </div>';
@@ -137,43 +142,43 @@ function login($conn, $phno, $passwd)
                         <!-- <h5 class="text-center">Upper Body</h5> -->
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Shirt Length :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="shirt-length" id="shirt-length" class="text-center cc-mes-inp" min="0"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="shirt-length" id="shirt-length" class="text-center ml-3 cc-mes-inp" min="0"
                                  max="99" step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Collar :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="collar" id="collar" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="collar" id="collar" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Shoulder :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="shoulder" id="shoulder" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="shoulder" id="shoulder" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Chest :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="chest" id="chest" class="text-center cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="chest" id="chest" class="text-center ml-3 cc-mes-inp" min="0" max="99"
+                                 step="0.1" value="">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Sleeves :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="sleeves" id="sleeves" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="sleeves" id="sleeves" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Waist :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="waist" id="waist" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="waist" id="waist" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
@@ -182,43 +187,43 @@ function login($conn, $phno, $passwd)
                         <!-- <h5 class="text-left">Lower Body</h5> -->
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Pant Length :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="pant-length" id="pant-length" class="text-center cc-mes-inp" min="0"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="pant-length" id="pant-length" class="text-center ml-3 cc-mes-inp" min="0"
                                  max="99" step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Hip :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="hip" id="hip" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="hip" id="hip" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Fork Round :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="fork-round" id="fork-round" class="text-center cc-mes-inp" min="0"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="fork-round" id="fork-round" class="text-center ml-3 cc-mes-inp" min="0"
                                  max="99" step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Thigh :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="thigh" id="thigh" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="thigh" id="thigh" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Knee :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="knee" id="knee" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="knee" id="knee" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Bottom :</label>
-                           <div class="cc-w-50 text-center">
-                              <input type="number" name="bottom" id="bottom" class="text-center cc-mes-inp" min="0" max="99"
+                           <div class="cc-w-50 text-left">
+                              <input type="number" name="bottom" id="bottom" class="text-center ml-3 cc-mes-inp" min="0" max="99"
                                  step="0.1">
                            </div>
                         </div>
@@ -227,7 +232,7 @@ function login($conn, $phno, $passwd)
          
                   <div class="row">
                      <button type="submit" id="lof-btn"
-                        class="my-1 btn btn-primary rounded-pill p-1 cc-mes-save m-auto">Save</button>
+                        class="mt-3 btn btn-primary rounded-pill p-1 cc-mes-save m-auto">Save</button>
          
                   </div>
                </form>
