@@ -23,9 +23,9 @@ if ($conn == true) {
             mysqli_query($conn, $sql);
 
             login($conn, $phno, $password);
+            // Inserting into MEASUREMENT Table
             if ($_SESSION['Logged In']) {
-               // Inserting into MEASUREMENT Table
-               $Cust_Id = $_SESSION['Id'];
+               $Cust_Id = $_SESSION['Cust_Id'];
                $sql = "INSERT INTO `measurements` (`Cust_ID`) VALUES ($Cust_Id)";
                mysqli_query($conn, $sql);
             }
@@ -33,11 +33,38 @@ if ($conn == true) {
             $Message = "User already exits, Please try login";
          }
       }
-      if (array_key_exists("log-phno", $_POST)) {
-         
-      }
+      session_start();
+      $Cust_ID = $_SESSION['Cust_Id'];
+      updateMeasurement($conn, $Cust_ID, "shirt-length", "Shirt Length");
+      updateMeasurement($conn, $Cust_ID, "collar", "Collar");
+      updateMeasurement($conn, $Cust_ID, "shoulder", "Shoulder");
+      updateMeasurement($conn, $Cust_ID, "chest", "Chest");
+      updateMeasurement($conn, $Cust_ID, "sleeves", "Sleeves");
+      updateMeasurement($conn, $Cust_ID, "waist", "Waist");
+      updateMeasurement($conn, $Cust_ID, "pant-length", "Pant Length");
+      updateMeasurement($conn, $Cust_ID, "hip", "Hip");
+      updateMeasurement($conn, $Cust_ID, "fork-round", "Fork Round");
+      updateMeasurement($conn, $Cust_ID, "thigh", "Thigh");
+      updateMeasurement($conn, $Cust_ID, "knee", "Knee");
+      updateMeasurement($conn, $Cust_ID, "bottom", "Bottom");
    }
 }
+
+function updateMeasurement($conn, $Cust_ID, $meas_key, $meas_Name)
+{
+   if (array_key_exists($meas_key, $_POST)) {
+      if (strlen($_POST[$meas_key]) == 0)
+         $meas_value = "NULL";
+      else
+         $meas_value = $_POST[$meas_key];
+      // echo " * ".$meas_value. " * ";
+      // echo $Cust_ID;
+      // echo "<br>"; 
+      $sql = "UPDATE `Measurements` set `$meas_Name` = $meas_value where `Cust_ID` = $Cust_ID";
+      mysqli_query($conn, $sql);
+   }
+}
+
 function login($conn, $phno, $passwd)
 {
    global $Message;
@@ -50,7 +77,7 @@ function login($conn, $phno, $passwd)
             session_start();
             $_SESSION['Logged In'] = true;
             $_SESSION['User Name'] = $row['Cust_Name'];
-            $_SESSION['Id'] = $row['Cust_ID'];
+            $_SESSION['Cust_Id'] = $row['Cust_ID'];
             // $username = $row['Cust_Name'];
             // $Message = "Logged in Successfully";
          } else $Message = "Password Incorrect, Try Again";
@@ -128,13 +155,29 @@ function login($conn, $phno, $passwd)
 
       <?php
       session_start();
+
+      function displayMeasVal($conn, $column,  $Cust_ID)
+      {
+         $sql = "Select `$column` from Measurements where Cust_Id = $Cust_ID";
+         while ($row = mysqli_fetch_assoc(mysqli_query($conn, $sql))) {
+            return $row[$column];
+         }
+      }
+
       if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true) {
+         
+         $shirt_length_val = displayMeasVal($conn, "Shirt Length", $Cust_ID);
+         // echo "<br> **".$shirt_length_val;
+         $collar_val = displayMeasVal($conn, "Collar", $Cust_ID);
+         $pant_length_val = displayMeasVal($conn, "Pant Length", $Cust_ID);
+
          echo '<div class=" container-flex col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as ' . $_SESSION['User Name'] . "</h2>";
          echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
             <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
             </div>';
 
          echo '
+            
             <div class="container-fluid flex-grow-1 my-4">
                <hr>
                <h2 class="text-center ">Measurement</h2>
@@ -146,42 +189,42 @@ function login($conn, $phno, $passwd)
                            <label for="shirt-length" class="text-right cc-mes-label">Shirt Length :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="shirt-length" id="shirt-length" class="text-center ml-3 cc-mes-inp" min="0"
-                                 max="99" step="0.1">
+                                 max="99" step="0.1" value='.displayMeasVal($conn, "Shirt Length", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Collar :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="collar" id="collar" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Collar", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Shoulder :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="shoulder" id="shoulder" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Shoulder", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Chest :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="chest" id="chest" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1" value="">
+                                 step="0.1" value='.displayMeasVal($conn, "Chest", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Sleeves :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="sleeves" id="sleeves" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Sleeves", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Waist :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="waist" id="waist" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Waist", $Cust_ID).'>
                            </div>
                         </div>
                      </div>
@@ -191,42 +234,42 @@ function login($conn, $phno, $passwd)
                            <label for="shirt-length" class="text-right cc-mes-label">Pant Length :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="pant-length" id="pant-length" class="text-center ml-3 cc-mes-inp" min="0"
-                                 max="99" step="0.1">
+                                 max="99" step="0.1" value='.displayMeasVal($conn, "Pant Length", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Hip :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="hip" id="hip" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Hip", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Fork Round :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="fork-round" id="fork-round" class="text-center ml-3 cc-mes-inp" min="0"
-                                 max="99" step="0.1">
+                                 max="99" step="0.1" value='.displayMeasVal($conn, "Fork Round", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Thigh :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="thigh" id="thigh" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Thigh", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Knee :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="knee" id="knee" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Knee", $Cust_ID).'>
                            </div>
                         </div>
                         <div class="p-1 d-flex justify-content-evenly align-items-end">
                            <label for="shirt-length" class="text-right cc-mes-label">Bottom :</label>
                            <div class="cc-w-50 text-left">
                               <input type="number" name="bottom" id="bottom" class="text-center ml-3 cc-mes-inp" min="0" max="99"
-                                 step="0.1">
+                                 step="0.1" value='.displayMeasVal($conn, "Bottom", $Cust_ID).'>
                            </div>
                         </div>
                      </div>
