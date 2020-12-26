@@ -43,10 +43,10 @@
                      <a class="nav-link" href="#">Catalog</a>
                   </li> -->
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Place Order</a>
+                     <a class="nav-link" href="place_order.php">Place Order</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Track Order</a>
+                     <a class="nav-link" href="track_order.php">Track Order</a>
                   </li>
 
                   <?php

@@ -26,7 +26,7 @@ if ($conn == true) {
             // Inserting into MEASUREMENT Table
             if ($_SESSION['Logged In']) {
                $Cust_Id = $_SESSION['Cust_Id'];
-               $sql = "INSERT INTO `measurements` (`Cust_ID`) VALUES ($Cust_Id)";
+               $sql = "INSERT INTO `Measurement` (`Cust_ID`) VALUES ($Cust_Id)";
                mysqli_query($conn, $sql);
             }
          } else {
@@ -60,7 +60,7 @@ function updateMeasurement($conn, $Cust_ID, $meas_key, $meas_Name)
       // echo " * ".$meas_value. " * ";
       // echo $Cust_ID;
       // echo "<br>"; 
-      $sql = "UPDATE `Measurements` set `$meas_Name` = $meas_value where `Cust_ID` = $Cust_ID";
+      $sql = "UPDATE `Measurement` set `$meas_Name` = $meas_value where `Cust_ID` = $Cust_ID";
       mysqli_query($conn, $sql);
    }
 }
@@ -103,7 +103,7 @@ function login($conn, $phno, $passwd)
    <!-- Custom CSS -->
    <link rel="stylesheet" href="Styles/navbar.css">
    <!-- <link rel="stylesheet" href="Styles/login.css"> -->
-   <link rel="stylesheet" href="Styles/log-reg.css">
+   <link rel="stylesheet" href="Styles/log_reg.css">
 
    <!-- font -->
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -132,10 +132,10 @@ function login($conn, $phno, $passwd)
                      <a class="nav-link" href="#">Catalog</a>
                   </li> -->
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Place Order</a>
+                     <a class="nav-link" href="place_order.php">Place Order</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Track Order</a>
+                     <a class="nav-link" href="track_order.php">Track Order</a>
                   </li>
                   <?php
                   session_start();
@@ -158,7 +158,7 @@ function login($conn, $phno, $passwd)
 
       function displayMeasVal($conn, $column,  $Cust_ID)
       {
-         $sql = "Select `$column` from Measurements where Cust_Id = $Cust_ID";
+         $sql = "Select `$column` from Measurement where Cust_Id = $Cust_ID";
          while ($row = mysqli_fetch_assoc(mysqli_query($conn, $sql))) {
             return $row[$column];
          }
@@ -167,11 +167,10 @@ function login($conn, $phno, $passwd)
       if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true) {
          
          $shirt_length_val = displayMeasVal($conn, "Shirt Length", $Cust_ID);
-         // echo "<br> **".$shirt_length_val;
          $collar_val = displayMeasVal($conn, "Collar", $Cust_ID);
          $pant_length_val = displayMeasVal($conn, "Pant Length", $Cust_ID);
 
-         echo '<div class=" container-flex col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h2>Logged in as ' . $_SESSION['User Name'] . "</h2>";
+         echo '<div class=" container-flex col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h3 class = "fw-normal">Logged in as <span class = "fw-bolder" >' . $_SESSION['User Name'] . "</span></h3>";
          echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
             <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
             </div>';

@@ -84,6 +84,7 @@
   border: none;
   border-bottom: 1.5px solid var(--primary-color);
   margin: 2px;
+  font-weight: 500;
 }
 
 .cc-w-50{
