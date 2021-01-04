@@ -74,9 +74,9 @@
                <h1 class="cc-main-head">Tailor <br> Management</h1>
                <p class="cc-main-p">One Stop Solution To PLACE and TRACK Your ORDER</p>
                <div class="cc-buttons">
-                  <button class="btn btn-primary cc-place-order-btn">Place Order</button>
+                  <a href="place_order.php"><button class="btn btn-primary cc-place-order-btn">Place Order</button></a>
                   <br>
-                  <button class="btn btn-primary-outline cc-track-order-btn ">Track Order</button>
+                  <a href="track_order.php"><button class="btn btn-primary-outline cc-track-order-btn ">Track Order</button></a>
                </div>
             </div>
          </div>

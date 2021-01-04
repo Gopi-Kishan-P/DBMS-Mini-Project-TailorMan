@@ -10,7 +10,8 @@
     <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
 
     <!-- bootstrap css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Styles/navbar.css">
@@ -28,7 +29,9 @@
         <nav class="navbar navbar-expand-lg navbar-light cc-navbar p-0">
             <div class="container-fluid pl-2">
                 <a class="navbar-brand cc-nav-logo" href="/">TailorMan</a>
-                <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="cc-menu">
                         <img src="images/menu.svg" alt="" width="30px" id="menu" onclick="change()">
                     </span>
@@ -61,21 +64,44 @@
         <?php
         if (!(isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true)) {
             echo '
-            <div class=" container-flex col flex-grow-1 p-2 justify-content-center align-items-center mt-3">
+            <div class="container-fluid col flex-grow-1 p-2 justify-content-center align-items-center mt-3">
                 <h3 class="fw-normal">You have not Logged-in. Please Login to Place your Order</h3>
                 
                 <div><a href="/login.php"><button type="button" class="my-1 btn btn-primary rounded-pill px-3 py-1">Login</button></a>
                 </div>
             </div>            
             ';
+        }else{
+            echo '
+            <div class="container-fluid col flex-grow-1 p-2 justify-content-center align-items-center">
+                <div class="d-flex justify-content-around cc-add-new">
+                        <button type="button" class="my-1 btn rounded-pill mx-1 py-0 d-flex align-items-center justify-content-around cc-add-btn" onclick="addCloth(`shirt`)"><img src="images/plus.svg" class="cc-plus-icon" width="18px" alt="">Shirt</button>
+                        <button type="button" class="my-1 btn rounded-pill mx-1 py-0 d-flex align-items-center justify-content-around cc-add-btn" onclick="addCloth(`pant`)"><img src="images/plus.svg" class="cc-plus-icon" width="18px" alt="">Pant</button>
+                        <button type="button" class="my-1 btn rounded-pill mx-1 py-0 d-flex align-items-center justify-content-around cc-add-btn" onclick="addCloth(`suit`)"><img src="images/plus.svg" class="cc-plus-icon" width="18px" alt="">Suit</button>
+                        <button type="button" class="my-1 btn rounded-pill mx-1 py-0 d-flex align-items-center justify-content-around cc-add-btn" onclick="addCloth(`safari`)"><img src="images/plus.svg" class="cc-plus-icon" width="18px" alt="">Safari</button>
+                </div>
+                <div class="col d-flex flex-grow-1">
+                    <div>Hi</div>
+                </div>
+                <div class="cc-fix"></div>
+                <div class="d-flex justify-content-center align-items-center position-fixed w-100 bottom-0 left-0 py-1 cc-pay-div">
+                    <button type="button" class="fs-5 my-1 btn btn-primary rounded-pill mx-1 py-0 d-flex align-items-center justify-content-around cc-pay-btn" onclick="addCloth(`pay`)"><img src="images/payment.svg" class="cc-plus-icon" width="18px" alt="">Pay</button>
+
+                </div>
+            </div>            
+            ';
+
         }
         ?>
 
 
 
         <!-- bootstrap js bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
+            crossorigin="anonymous"></script>
         <script src="Script/nav.js"></script>
+        <script src="Script/place_order.js"></script>
 </body>
 
 </html>

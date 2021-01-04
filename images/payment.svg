@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="50"
+   width="50"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   version="1.1"
+   viewBox="0 0 50.000002 50"
+   sodipodi:docname="payment.svg"
+   id="svg3611">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     inkscape:document-units="px"
+     inkscape:pageopacity="0.0"
+     inkscape:window-width="1920"
+     inkscape:cy="28.248999"
+     inkscape:cx="28.516966"
+     inkscape:current-layer="layer1"
+     borderopacity="1.0"
+     showgrid="false"
+     inkscape:window-x="-11"
+     inkscape:zoom="10.618321"
+     inkscape:window-maximized="1"
+     inkscape:window-height="986"
+     pagecolor="#ffffff"
+     inkscape:window-y="-11"
+     inkscape:pageshadow="2"
+     bordercolor="#666666"
+     id="base" />
+  <g
+     transform="translate(0,-801.97)"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1"
+     id="layer1">
+    <path
+       d="M 27.807447,851.9491 9.6944491,829.28611 9.7990751,824.7947 c 8.5008729,0.58592 15.1097959,-0.31395 16.6473929,-8.35489 l -18.1131989,-0.10398 2.9316109,-4.90935 14.448684,0.20797 c -2.201507,-4.57539 -8.256105,-5.13932 -17.6944532,-4.80336 l 3.2457692,-4.80536 30.677932,-0.0458 -3.036397,4.74557 H 30.42574 c 1.550034,1.63624 2.684443,3.51893 2.722238,5.11752 l 8.794834,-0.10444 -3.036397,4.69978 -5.863223,0.10444 c -0.915318,7.01068 -7.356424,11.16152 -15.495745,12.1152 l 18.234382,23.28491 -7.973742,0.004 v 8e-5 z"
+       style="fill:#ffffff;stroke:none;stroke-width:0.0198142;fill-opacity:1"
+       sodipodi:nodetypes="cccccccccccccccccccc"
+       id="path4158" />
+  </g>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Indian Rupee Symbol</dc:title>
+        <dc:date>2010-07-23T08:59:26</dc:date>
+        <dc:description>The clipart was generated as draft based on the  Symbol of Indian Rupee approved by the Union Cabinet on 15 July 2010. The Design for the symbol was submitted by D Udaya Kumar.\nSource :http://pib.nic.in/archieve/others/2010/jul/d2010071501.pdf</dc:description>
+        <dc:source>https://openclipart.org/detail/74431/indian-rupee-symbol-by-netalloy</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>netalloy</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Indian Rupee Symbol</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

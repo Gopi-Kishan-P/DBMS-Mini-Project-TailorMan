@@ -1,1 +1,29 @@
 @import "rootStyle.css";
+
+.cc-add-btn{
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.cc-add-btn:hover{
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.cc-plus-icon{
+    width: 13px;
+    margin-left: -5px;
+    margin-right: 5px;
+}
+
+.cc-pay-btn{
+    background-color: var(--primary-color);
+}
+
+.cc-pay-div{
+    background-color: #fff;
+}
+
+.cc-fix{
+    height: 38px;
+    background-color: red;
+}

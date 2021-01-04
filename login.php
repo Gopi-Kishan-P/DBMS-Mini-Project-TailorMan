@@ -156,30 +156,27 @@ function login($conn, $phno, $passwd)
       <?php
       session_start();
 
-      function displayMeasVal($conn, $column,  $Cust_ID)
+      function displayMeasVal($conn, $column, $Cust_ID)
       {
+         $Cust_ID = $_SESSION['Cust_Id'];
          $sql = "Select `$column` from Measurement where Cust_Id = $Cust_ID";
+         // echo $sql."<br>";
          while ($row = mysqli_fetch_assoc(mysqli_query($conn, $sql))) {
             return $row[$column];
          }
       }
 
       if (isset($_SESSION["Logged In"]) && $_SESSION["Logged In"] == true) {
-         
-         $shirt_length_val = displayMeasVal($conn, "Shirt Length", $Cust_ID);
-         $collar_val = displayMeasVal($conn, "Collar", $Cust_ID);
-         $pant_length_val = displayMeasVal($conn, "Pant Length", $Cust_ID);
 
-         echo '<div class=" container-flex col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h3 class = "fw-normal">Logged in as <span class = "fw-bolder" >' . $_SESSION['User Name'] . "</span></h3>";
+         echo '<div class=" container-fluid col flex-grow-1 p-2 justify-content-center align-items-center mt-3"><h3 class = "fw-normal">Logged in as <span class = "fw-bolder" >' . $_SESSION['User Name'] . "</span></h3>";
          echo '<div class="mt-4"><button type="button" id="return-to-home" class="my-1 btn btn-primary rounded-pill p-1 cc-rth" onclick="redirect()">Return to Home Page</button></div>
-            <div><a href="/logout.php"><button type="button" class="my-1 btn btn-primary-outline rounded-pill p-1 cc-logout">Logout</button></a>
+            <div><a href="/logout.php"><button type="button" class="my-1 btn  rounded-pill p-1 cc-logout">Logout</button></a>
             </div>';
 
-         echo '
-            
+         echo '            
             <div class="container-fluid flex-grow-1 my-4">
                <hr>
-               <h2 class="text-center ">Measurement</h2>
+               <h2 class="text-center">Measurement</h2>
                <form action="/login.php" method="POST">
                   <div class="row">
                      <div class="col-lg">
